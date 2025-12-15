@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  
+  <ion-item>
+    <ion-label>Measurement Unit</ion-label>
+    <ion-select [(ngModel)]="measurementUnit">
+      <ion-select-option value="metric">Metric</ion-select-option>
+      <ion-select-option value="us">US</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  
+  <ion-button expand="full" (click)="saveSettings()" style="margin-top: 16px;">
+    Save Settings
+  </ion-button>
+
+</ion-content>

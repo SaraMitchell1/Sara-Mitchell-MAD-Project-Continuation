@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ recipe.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  
+  <ion-thumbnail *ngIf="recipe.image">
+    <img [src]="recipe.image" alt="Recipe Image">
+  </ion-thumbnail>
+
+  
+  <ion-list *ngIf="recipe.extendedIngredients?.length">
+    <ion-item *ngFor="let ingredient of recipe.extendedIngredients">
+      <ion-label>
+        {{ measurementUnit === 'metric'
+            ? ingredient.measures.metric.amount + ' ' + ingredient.measures.metric.unitLong
+            : ingredient.measures.us.amount + ' ' + ingredient.measures.us.unitLong
+        }} - {{ ingredient.name }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+ 
+  <ion-list *ngIf="recipe.analyzedInstructions?.length">
+    <ion-item *ngFor="let step of recipe.analyzedInstructions[0].steps">
+      <ion-label>
+        {{ step.number }}. {{ step.step }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" (click)="goBack()" style="margin-top:16px;">
+    Back to Home
+  </ion-button>
+
+</ion-content>
