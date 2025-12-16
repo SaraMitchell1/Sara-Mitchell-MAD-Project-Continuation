@@ -5,15 +5,15 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-
-  
   <ion-thumbnail *ngIf="recipe.image">
     <img [src]="recipe.image" alt="Recipe Image">
   </ion-thumbnail>
 
-  
   <ion-list *ngIf="recipe.extendedIngredients?.length">
     <ion-item *ngFor="let ingredient of recipe.extendedIngredients">
+      <ion-thumbnail *ngIf="ingredient.image" slot="start">
+        <img [src]="'https://spoonacular.com/cdn/ingredients_100x100/' + ingredient.image" alt="{{ ingredient.name }}">
+      </ion-thumbnail>
       <ion-label>
         {{ measurementUnit === 'metric'
             ? ingredient.measures.metric.amount + ' ' + ingredient.measures.metric.unitLong
@@ -23,7 +23,6 @@
     </ion-item>
   </ion-list>
 
- 
   <ion-list *ngIf="recipe.analyzedInstructions?.length">
     <ion-item *ngFor="let step of recipe.analyzedInstructions[0].steps">
       <ion-label>
@@ -32,8 +31,11 @@
     </ion-item>
   </ion-list>
 
+  <ion-button expand="full" (click)="toggleFavourite()" style="margin-top:16px;">
+    {{ isFavourite ? 'Remove From Favourites' : 'Add To Favourites' }}
+  </ion-button>
+
   <ion-button expand="full" (click)="goBack()" style="margin-top:16px;">
     Back to Home
   </ion-button>
-
 </ion-content>
