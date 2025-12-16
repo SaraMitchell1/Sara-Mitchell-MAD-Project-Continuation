@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+
 import { 
   IonHeader, IonToolbar, IonTitle, IonContent, IonButton, 
-  IonList, IonItem, IonThumbnail, IonLabel, IonInput 
+  IonList, IonItem, IonThumbnail, IonLabel, IonInput, IonButtons, IonIcon 
 } from '@ionic/angular/standalone';
 import { Recipe } from '../models/recipe';
 
@@ -26,9 +27,12 @@ import { Recipe } from '../models/recipe';
     IonItem,
     IonThumbnail,
     IonLabel,
-    IonInput
+    IonInput,
+    IonButtons,
+    IonIcon
   ],
 })
+
 export class HomePage {
   ingredients: string = ''; 
   recipes: Recipe[] = [];  
@@ -58,5 +62,13 @@ export class HomePage {
         console.error('API error:', err);
       }
     );
+  }
+
+  goToFavourites() {
+    this.router.navigate(['/favourites']);
+  }
+
+  goToSettings() {
+    this.router.navigate(['/settings']);
   }
 }

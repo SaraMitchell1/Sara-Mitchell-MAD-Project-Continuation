@@ -1,34 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title>G00438824</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToFavourites()">
+        ❤️
+      </ion-button>
+      <ion-button (click)="goToSettings()">
+        ⚙️
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  <ion-button expand="full" routerLink="/favourites">Go to Favourites</ion-button>
-  <ion-button expand="full" routerLink="/settings">Go to Settings</ion-button>
-
-  
   <ion-item>
     <ion-input
-      label="Ingredients"
+      label="Enter Ingredients"
       labelPlacement="floating"
       placeholder="e.g. chicken, rice"
       [(ngModel)]="ingredients">
     </ion-input>
   </ion-item>
 
-  
   <ion-button expand="full" (click)="searchRecipes()">Search</ion-button>
 
- 
   <ion-list>
-    <ion-item *ngFor="let recipe of recipes" (click)="goToDetails(recipe.id)">
+    <ion-item *ngFor="let recipe of recipes">
       <ion-thumbnail slot="start">
-        <img [src]="recipe.image">
+        <img [src]="recipe.image" alt="{{ recipe.title }}">
       </ion-thumbnail>
       <ion-label>{{ recipe.title }}</ion-label>
+      <ion-button slot="end" (click)="goToDetails(recipe.id)">Details</ion-button>
     </ion-item>
   </ion-list>
 
