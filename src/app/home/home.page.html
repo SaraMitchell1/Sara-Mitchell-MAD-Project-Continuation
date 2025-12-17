@@ -35,4 +35,6 @@
     </ion-item>
   </ion-list>
 
+  <p *ngIf="recipes.length === 0 && ingredients">No recipes found for "{{ ingredients }}".</p>
+  
 </ion-content>

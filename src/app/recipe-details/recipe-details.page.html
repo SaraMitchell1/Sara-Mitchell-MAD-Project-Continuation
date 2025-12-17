@@ -8,19 +8,22 @@
   <ion-img *ngIf="recipe.image" [src]="recipe.image" alt="Recipe Image" style="width: 25%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 16px;"></ion-img>
 
 
-  <ion-list *ngIf="recipe.extendedIngredients?.length">
-    <ion-item *ngFor="let ingredient of recipe.extendedIngredients">
-      <ion-thumbnail *ngIf="ingredient.image" slot="start" style="width: 60px; height: 60px;">
-        <img [src]="'https://spoonacular.com/cdn/ingredients_100x100/' + ingredient.image" alt="{{ ingredient.name }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
-      </ion-thumbnail>
-      <ion-label>
-        {{ measurementUnit === 'metric'
-            ? ingredient.measures.metric.amount + ' ' + ingredient.measures.metric.unitLong
-            : ingredient.measures.us.amount + ' ' + ingredient.measures.us.unitLong
-        }} - {{ ingredient.name }}
-      </ion-label>
-    </ion-item>
-  </ion-list>
+<ion-list *ngIf="recipe.extendedIngredients?.length">
+  <ion-item *ngFor="let ingredient of recipe.extendedIngredients">
+    <ion-thumbnail *ngIf="ingredient.image" slot="start" style="width: 100px; height: 100px;">
+      <img [src]="'https://spoonacular.com/cdn/ingredients_100x100/' + ingredient.image" 
+           alt="{{ ingredient.name }}" 
+           style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+    </ion-thumbnail>
+    <ion-label>
+      {{ measurementUnit === 'metric'
+          ? ingredient.measures.metric.amount + ' ' + ingredient.measures.metric.unitLong
+          : ingredient.measures.us.amount + ' ' + ingredient.measures.us.unitLong
+      }} - {{ ingredient.name }}
+    </ion-label>
+  </ion-item>
+</ion-list>
+
 
   <ion-list *ngIf="recipe.analyzedInstructions?.length">
     <ion-item *ngFor="let step of recipe.analyzedInstructions[0].steps">
