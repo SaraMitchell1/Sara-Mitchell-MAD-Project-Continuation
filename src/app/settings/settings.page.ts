@@ -55,4 +55,7 @@ export class SettingsPage implements OnInit {
     alert(`Measurement unit set to ${this.measurementUnit.toUpperCase()}`);
     this.router.navigate(['/home']);
   }
+  goHome() {
+  this.router.navigate(['/home']);
+}
 }

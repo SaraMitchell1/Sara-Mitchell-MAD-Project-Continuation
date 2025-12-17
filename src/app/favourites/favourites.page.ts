@@ -31,4 +31,8 @@ export class FavouritesPage implements OnInit {
   goToDetails(recipeId: number) {
     this.router.navigate(['/recipe-details', recipeId]);
   }
+
+  goHome() {
+  this.router.navigate(['/home']);
+}
 }
