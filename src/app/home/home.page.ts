@@ -43,10 +43,12 @@ export class HomePage {
     this.router.navigate(['/recipe-details', recipeId]);
   }
 
-  searchRecipes() {
-    console.log('Searching for ingredients:', this.ingredients);
-    this.fetchRecipesFromAPI(this.ingredients);
-  }
+recipesLoaded: boolean = false;
+
+searchRecipes() {
+  console.log('Searching for ingredients:', this.ingredients);
+  this.fetchRecipesFromAPI(this.ingredients);
+}
 
   fetchRecipesFromAPI(ingredients: string) {
     const apiKey = '70759a4f7911402abcc53d3c51d3b759';
@@ -57,9 +59,12 @@ export class HomePage {
       (res) => {
         console.log('API response:', res);
         this.recipes = res.results; 
+        this.recipesLoaded = true;
       },
       (err) => {
         console.error('API error:', err);
+        this.recipes = [];
+      this.recipesLoaded = true;
       }
     );
   }
