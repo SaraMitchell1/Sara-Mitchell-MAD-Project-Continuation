@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http'; 
+import { IonImg } from '@ionic/angular/standalone';
 import { 
   IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, 
   IonLabel, IonButton, IonThumbnail 
@@ -25,6 +26,7 @@ import { Recipe } from '../models/recipe';
     IonItem,
     IonLabel,
     IonButton,
+    IonImg, 
     IonThumbnail
   ]
 })
