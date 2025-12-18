@@ -1,0 +1,8 @@
+# NOTE: I had some issues downloading Git on the VM, so for the first few commits (beginning at ~40% completion) I committed manually. 
+# Once Git was working, I created a new repository to sync directly. Both repositories are included below.
+# No changes were made between the end of the first repo and the start of the second. Apologies for the mess.
+
+
+https://github.com/SaraMitchell1/Sara-Mitchell-MAD-Project.git
+
+https://github.com/SaraMitchell1/Sara-Mitchell-MAD-Project-Continuation.git
