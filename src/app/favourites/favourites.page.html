@@ -1,22 +1,30 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+     <!-- Page title -->
     <ion-title>Favourites</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <!-- List of favourite recipes -->
   <ion-list>
+    <!-- Loop through all recipes in favourites array -->
     <ion-item *ngFor="let recipe of favourites">
+      <!-- Recipe image -->
       <ion-thumbnail slot="start">
         <img [src]="recipe.image" alt="{{ recipe.title }}">
       </ion-thumbnail>
+        <!-- Recipe title -->
       <ion-label>{{ recipe.title }}</ion-label>
+      <!-- Button to go to recipe details page -->
       <ion-button slot="end" (click)="goToDetails(recipe.id)">Details</ion-button>
     </ion-item>
   </ion-list>
+   <!-- Message displayed if no favourites are saved -->
   <p *ngIf="favourites.length === 0">No favourites added yet.</p>
 </ion-content>
 
+<!-- Button to return to the Home page -->
 <ion-button (click)="goHome()" style="width: 150px; margin: 16px auto; display: block;">
   Back to Home
 </ion-button>

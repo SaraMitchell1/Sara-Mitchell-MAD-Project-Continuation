@@ -1,20 +1,25 @@
 <ion-header>
   <ion-toolbar>
+    <!-- Displays the title of the selected recipe -->
     <ion-title>{{ recipe.title }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <!-- Shows the main image of the recipe if it exists -->
   <ion-img *ngIf="recipe.image" [src]="recipe.image" alt="Recipe Image" style="width: 25%; max-height: 300px; object-fit: cover; border-radius: 8px; margin-bottom: 16px;"></ion-img>
 
-
+<!-- List of ingredients for the recipe -->
 <ion-list *ngIf="recipe.extendedIngredients?.length">
   <ion-item *ngFor="let ingredient of recipe.extendedIngredients">
+     <!-- Thumbnail image for the ingredient if available -->
     <ion-thumbnail *ngIf="ingredient.image" slot="start" style="width: 100px; height: 100px;">
       <img [src]="'https://spoonacular.com/cdn/ingredients_100x100/' + ingredient.image" 
            alt="{{ ingredient.name }}" 
            style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
     </ion-thumbnail>
+
+     <!-- Shows the quantity and name of the ingredient -->
     <ion-label>
       {{ measurementUnit === 'metric'
           ? ingredient.measures.metric.amount + ' ' + ingredient.measures.metric.unitLong
@@ -24,19 +29,22 @@
   </ion-item>
 </ion-list>
 
-
+<!-- List of steps/instructions for making the recipe -->
   <ion-list *ngIf="recipe.analyzedInstructions?.length">
     <ion-item *ngFor="let step of recipe.analyzedInstructions[0].steps">
       <ion-label>
+         <!-- Shows step number and description -->
         {{ step.number }}. {{ step.step }}
       </ion-label>
     </ion-item>
   </ion-list>
 
+  <!-- Button to add or remove the recipe from favourites -->
   <ion-button (click)="toggleFavourite()" style="margin-top:16px;">
     {{ isFavourite ? 'Remove From Favourites' : 'Add To Favourites' }}
   </ion-button>
 
+  <!-- Button to navigate back to the home page -->
  <ion-button (click)="goBack()" style="width: 150px; margin: 16px auto; display: block;">
   Back to Home
 </ion-button>

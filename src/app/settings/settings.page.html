@@ -1,20 +1,25 @@
 <ion-header>
   <ion-toolbar>
+    <!-- Page title -->
     <ion-title>Settings</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
-  
+   <!-- Section to select measurement unit -->
 <ion-item>
-  <ion-label>Measurement Unit</ion-label>
+  <ion-label>Display Recipe Measurements In:</ion-label>
+
+  <!-- Radio group bound to measurementUnit variable; changes call saveSettings() -->
   <ion-radio-group [(ngModel)]="measurementUnit" (ionChange)="saveSettings()">
     <ion-item>
+       <!-- Metric option -->
       <ion-label>Metric</ion-label>
       <ion-radio slot="start" value="metric"></ion-radio>
     </ion-item>
     <ion-item>
+       <!-- US option -->
       <ion-label>US</ion-label>
       <ion-radio slot="start" value="us"></ion-radio>
     </ion-item>
@@ -23,6 +28,7 @@
 
 </ion-content>
 
+<!-- Button to go back to the Home page -->
 <ion-button (click)="goHome()" style="width: 150px; margin: 16px auto; display: block;">
   Back to Home
 </ion-button>

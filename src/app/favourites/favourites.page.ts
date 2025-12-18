@@ -13,25 +13,31 @@ import { Recipe } from '../models/recipe';
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem, IonThumbnail, IonLabel, IonButton, CommonModule, FormsModule]
 })
 export class FavouritesPage implements OnInit {
+  // Array to hold favourite recipes
   favourites: Recipe[] = [];
 
+   // Router to navigate to other pages
   constructor(private router: Router) { }
 
+   // Lifecycle hook: runs when the page is initialized
   ngOnInit() {
-    this.loadFavourites();
+    this.loadFavourites(); // Load favourites from local storage
   }
 
+  // Load favourites from localStorage
   loadFavourites() {
     const favouritesJSON = localStorage.getItem('favourites');
     if (favouritesJSON) {
-      this.favourites = JSON.parse(favouritesJSON);
+      this.favourites = JSON.parse(favouritesJSON); // Parse JSON into array
     }
   }
 
+  // Navigate to recipe details page for a given recipe ID
   goToDetails(recipeId: number) {
     this.router.navigate(['/recipe-details', recipeId]);
   }
 
+   // Navigate back to the home page
   goHome() {
   this.router.navigate(['/home']);
 }
