@@ -33,11 +33,12 @@
     </ion-item>
   </ion-list>
 
-  <ion-button expand="full" (click)="toggleFavourite()" style="margin-top:16px;">
+  <ion-button (click)="toggleFavourite()" style="margin-top:16px;">
     {{ isFavourite ? 'Remove From Favourites' : 'Add To Favourites' }}
   </ion-button>
 
-  <ion-button expand="full" (click)="goBack()" style="margin-top:16px;">
-    Back to Home
-  </ion-button>
+ <ion-button (click)="goBack()" style="width: 150px; margin: 16px auto; display: block;">
+  Back to Home
+</ion-button>
+
 </ion-content>

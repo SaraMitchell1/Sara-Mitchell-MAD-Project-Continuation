@@ -11,7 +11,9 @@ import {
   IonLabel, 
   IonSelect, 
   IonSelectOption, 
-  IonButton 
+  IonButton,
+  IonRadio,
+  IonRadioGroup 
 } from '@ionic/angular/standalone';
 
 
@@ -31,7 +33,9 @@ import {
     IonLabel, 
     IonSelect, 
     IonSelectOption, 
-    IonButton
+    IonButton,
+    IonRadio,
+    IonRadioGroup
   ]
 })
 export class SettingsPage implements OnInit {
@@ -51,10 +55,9 @@ export class SettingsPage implements OnInit {
 
  
   saveSettings() {
-    localStorage.setItem('measurementUnit', this.measurementUnit);
-    alert(`Measurement unit set to ${this.measurementUnit.toUpperCase()}`);
-    this.router.navigate(['/home']);
-  }
+  localStorage.setItem('measurementUnit', this.measurementUnit);
+}
+
   goHome() {
   this.router.navigate(['/home']);
 }

@@ -18,12 +18,12 @@
     <ion-input
       label="Enter Ingredients"
       labelPlacement="floating"
-      placeholder="e.g. chicken, rice"
+      placeholder="Ingredients"
       [(ngModel)]="ingredients">
     </ion-input>
   </ion-item>
 
-  <ion-button expand="full" (click)="searchRecipes()">Search</ion-button>
+  <ion-button (click)="searchRecipes()">Search</ion-button>
 
   <ion-list>
     <ion-item *ngFor="let recipe of recipes">

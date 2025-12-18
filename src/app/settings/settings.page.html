@@ -7,22 +7,24 @@
 <ion-content class="ion-padding">
 
   
-  <ion-item>
-    <ion-label>Measurement Unit</ion-label>
-    <ion-select [(ngModel)]="measurementUnit">
-      <ion-select-option value="metric">Metric</ion-select-option>
-      <ion-select-option value="us">US</ion-select-option>
-    </ion-select>
-  </ion-item>
-
-  
-  <ion-button expand="full" (click)="saveSettings()" style="margin-top: 16px;">
-    Save Settings
-  </ion-button>
+<ion-item>
+  <ion-label>Measurement Unit</ion-label>
+  <ion-radio-group [(ngModel)]="measurementUnit" (ionChange)="saveSettings()">
+    <ion-item>
+      <ion-label>Metric</ion-label>
+      <ion-radio slot="start" value="metric"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>US</ion-label>
+      <ion-radio slot="start" value="us"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</ion-item>
 
 </ion-content>
 
-<ion-button expand="full" (click)="goHome()" style="margin-top:16px;">
+<ion-button (click)="goHome()" style="width: 150px; margin: 16px auto; display: block;">
   Back to Home
 </ion-button>
+
 
